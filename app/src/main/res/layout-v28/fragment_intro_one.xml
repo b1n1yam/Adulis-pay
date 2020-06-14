@@ -1,0 +1,42 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#363636"
+    tools:context="com.biniyam.hands_freemoneytransfer.IntroFiles.intro1">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="60dp"
+        android:text="@string/pre_requisite"
+        android:textColor="#fff"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="220dp"
+        android:layout_margin="0dp"
+        android:layout_gravity="center"
+        android:padding="0dp"
+        android:src="@drawable/cbe_birr_final"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/cbe_birr_desc" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textAlignment="center"
+        android:text="@string/this_application_is_applicable_for_cbe_birr_users_only_you_must_be_registered_to_cbe_birr_with_this_phone_number_inorder_to_use_most_of_the_application"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="105sp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15.5sp"
+        android:layout_marginRight="10dp"
+        android:lineHeight="20sp"
+        />
+</FrameLayout>

@@ -1,0 +1,120 @@
+<resources>
+    <!--    English Strings-->
+    <string name="app_name">ADULIS-PAY</string>
+    <string name="title_activity_send_money">Send Money</string>
+    <string name="title_activity_check_balance">Check Balance</string>
+    <string name="title_activity_buy_airtime">Buy Airtime</string>
+    <string name="title_activity_pay_bill">Pay Bill</string>
+    <string name="title_activity_balance">Balance</string>
+    <string name="title_activity_scan_qr">Scan QR Code</string>
+    <string name="title_activity_about_corona">COVID-19 cases</string>
+    <string name="title_activity_help">Help</string>
+    <string name="get_covid_stat_bottom_text">Get The Latest Case Statistics About COVID-19</string>
+    <string name="ethiopia">Ethiopia</string>
+    <string name="new_case">New Cases</string>
+    <string name="active_cases">Active Cases</string>
+
+    <string name="top_3_affected_countries">Top 3 Affected Countries</string>
+    <string name="new_cases">New Cases</string>
+
+    <string name="deaths">Deaths</string>
+
+
+    <string name="by_biniyam_daniel">By Biniyam Daniel</string>
+    <string name="made_with">Made With</string>
+    <string name="heart_shape">heart_shape</string>
+
+    <string name="enter_pin">Enter Pin</string>
+    <string name="cbe_hint">your CBE birr pin</string>
+    <string name="check">CHECK</string>
+    <string name="buy_airtime_to_another_number">Buy airtime to another number?</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="pick_contact">pick contact</string>
+    <string name="card_amount">Card Amount</string>
+    <string name="buy">BUY</string>
+    <string name="send_money_icon">send money icon</string>
+    <string name="send_money">Send Money</string>
+    <string name="buy_airtime_icon_feedback">buy airtime icon</string>
+    <string name="buy_airtime">Buy Airtime</string>
+    <string name="pay_bill_icon_feed">pay bill icon feed</string>
+    <string name="pay_bill">Pay Bill</string>
+    <string name="balance">Balance</string>
+    <string name="icon_info">icon info</string>
+    <string name="covid_19_cases">COVID-19 cases</string>
+    <string name="send_icon">send icon</string>
+    <string name="send">Send</string>
+    <string name="recive_icon">recive icon</string>
+    <string name="receive">Receive</string>
+
+    <string name="send_money_bg">send money bg</string>
+    <string name="you_must_allow_camera_permission_to_scan_qr">You must allow camera permission to scan QR</string>
+    <string name="scan_the_qr_on_the_receivers_phone_or_posted_on_a_store_front">Scan the QR on the receivers phone or posted on a store front</string>
+    <string name="enter_the_amount_that_you_want_to_send">Enter the amount that you want to send</string>
+    <string name="enter_your_pin_and_send_the_money">Enter your pin and send the money</string>
+    <string name="press_the_send_button_on_the_home_page">press the send button on the home page</string>
+    <string name="receive_money">Receive Money</string>
+    <string name="press_the_receive_button_on_the_home_page">press the receive button on the home page</string>
+    <string name="you_must_allow_the_read_phone_status_permission_to_generate_qr_code">You must allow the read phone status permission to generate QR code</string>
+    <string name="you_can_save_the_qr_code_as_an_image_and_post_it_on_your_store_front_for_store_owners">You can save the QR code as an image and post it on your store front (for store owners)</string>
+    <string name="make_sure_you_receive_sms_from_cbe_notifying_you_that_you_have_received_money">Make sure you receive SMS from CBE notifying you that you have received money</string>
+
+    <string name="press_the_buy_airtime_button_from_the_home_menu">press the Buy Airtime button from the home menu</string>
+    <string name="if_you_want_to_buy_airtime_for_another_phone_number_toggle_the_buy_airtime_to_another_number_switch">If you want to buy airtime for another phone number, toggle the \'Buy Airtime To Another Number\' switch</string>
+    <string name="if_you_want_to_buy_it_for_your_self_leave_the_switch_button_off">If you want to buy it for your self, leave the switch button off</string>
+    <string name="enter_any_amount_you_want_not_restricted_to_5_10_15_50_or_100">Enter any amount you want (not restricted to 5, 10, 15, 50 or 100)</string>
+    <string name="enter_your_cbe_birr_pin_and_buy_your_airtime">Enter your CBE BIRR pin and buy your airtime</string>
+    <string name="for_further_help">For further help:</string>
+    <string name="biniyamdaniel_47_gmail_com">biniyamdaniel.47@gmail.com</string>
+    <string name="buy_airtime_info">buy airtime</string>
+    <string name="input_shortcode">Input ShortCode</string>
+    <string name="bill_reference_number">Bill Reference Number</string>
+    <string name="pay">PAY</string>
+    <string name="enter_amount">Enter Amount</string>
+
+    <string name="enter_cbe_birr_pin">Enter your CBE birr pin</string>
+    <string name="if_you_haven_t_already">If You Haven\'t Already...</string>
+    <string name="accept_permissions">Accept Permissions</string>
+    <string name="in_settings_apps_hands_free_permissions_make_sure_the_permission_is_enabled"><![CDATA[In Settings > Apps > Hands-free > permissions , make sure the permission is enabled]]></string>
+    <string name="allow_permission">Allow permission</string>
+    <string name="get_covid_19_case_statstics">Get COVID-19 Case Statstics</string>
+    <string name="get_ethiopia_s_and_other_countries_realtime_corona_virus_cases">Get Ethiopia\'s and other countries realtime corona virus cases</string>
+    <string name="covid_19_stat_image">covid 19 stat image</string>
+    <string name="pre_requisite">Pre-requisite</string>
+    <string name="this_application_is_applicable_for_cbe_birr_users_only_you_must_be_registered_to_cbe_birr_with_this_phone_number_inorder_to_use_most_of_the_application">This application is applicable for CBE BIRR users only. You must be registered to CBE BIRR with this phone number inorder to use most of the application</string>
+    <string name="cbe_birr_desc">cbe birr desc</string>
+    <string name="scan_amp_pay"><![CDATA[Scan & Pay]]></string>
+    <string name="scan_to_pay_image">scan to pay image</string>
+    <string name="simply_scan_the_qr_code_that_is_on_the_receiver_s_mobile_phone_or_scan_it_from_a_printed_paper_and_perform_your_payment">Simply scan the QR code that is on the receiver\'s mobile phone or scan it from a printed paper and perform your payment</string>
+    <string name="avoid_hand_to_hand_payment">Avoid Hand-To-Hand Payment!</string>
+    <string name="avoid_hand_to_hand_transaction">avoid hand to hand transaction</string>
+    <string name="the_world_health_organisation_who_have_advised_people_to_use_contactless_payments_instead_of_cash_to_reduce_the_risk_of_covid_19_transmission">The World Health Organisation (WHO) have advised people to use contactless payments instead of cash to reduce the risk of Covid-19 transmission.</string>
+    <string name="please_enter_your_phone_no">Please Enter Your Phone No</string>
+    <string name="we_were_unable_to_get_your_phone_automatically">We were unable to get your phone automatically</string>
+    <string name="your_phone_number">Your Phone Number</string>
+    <string name="error_message">error message</string>
+
+    <string name="please_wait">Please wait....</string>
+    <string name="no_internet">no internet</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="check_your_internet_setting_and_try_again">Check your internet setting and try again.</string>
+    <string name="try_again">Try again</string>
+    <string name="save_qr_code_to_phone">Save QR code to phone</string>
+
+    <string name="your_phone">Your Phone</string>
+    <string name="done">done</string>
+    <string name="mobile">mobile</string>
+    <string name="waiting_for_sender">Waiting for sender</string>
+    <string name="qr">qr</string>
+    <string name="save_img">save img</string>
+    <string name="title_activity_d_s_t_v_payment">DSTVPayment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!--    Amharic Strings-->
+</resources>

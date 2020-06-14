@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#038fcd"
+    tools:context="com.biniyam.hands_freemoneytransfer.IntroFiles.intro5">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:layout_marginBottom="45dp"
+        android:layout_marginLeft="40dp"
+        android:orientation="vertical"
+        tools:ignore="RtlHardcoded">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Choose your prefered language"
+
+        android:textSize="29sp"
+        />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/lang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="30dp"
+        >
+        <RadioButton
+            android:id="@+id/en"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:textSize="20sp"
+            android:textColor="@color/color_white"
+            />
+
+        <RadioButton
+            android:id="@+id/am"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amharic"
+            android:layout_marginTop="7dp"
+            android:textSize="20sp"
+            android:textColor="@color/color_white"
+            />
+
+    </RadioGroup>
+
+
+
+</FrameLayout>

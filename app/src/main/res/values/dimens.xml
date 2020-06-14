@@ -1,0 +1,43 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_30sp">30sp</dimen>
+    <dimen name="m10dp">10dp</dimen>
+    <dimen name="text_40sp">40sp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
+    <dimen name="width_1dp">1dp</dimen>
+    <dimen name="no_height">0dp</dimen>
+    <dimen name="text_60sp">60sp</dimen>
+    <dimen name="text_18sp">18sp</dimen>
+
+
+    <dimen name="m20">20dp</dimen>
+    <dimen name="m5">5dp</dimen>
+    <dimen name="p12">12dp</dimen>
+
+
+    <dimen name="text_14sp">14sp</dimen>
+
+    <dimen name="m35">35dp</dimen>
+
+    <dimen name="text_15sp">15sp</dimen>
+
+    <dimen name="m16">16dp</dimen>
+
+    <dimen name="m3">3dp</dimen>
+    <dimen name="text_20sp">20sp</dimen>
+    <dimen name="m_30">30dp</dimen>
+    <dimen name="m10">10dp</dimen>
+    <dimen name="m45">45dp</dimen>
+    <dimen name="m43">43dp</dimen>
+    <dimen name="m40">40dp</dimen>
+    <dimen name="m0">0dp</dimen>
+    <dimen name="m8">8dp</dimen>
+    <dimen name="text_16_sp">16sp</dimen>
+    <dimen name="m25">25dp</dimen>
+    <dimen name="m15">15dp</dimen>
+    <dimen name="m27">27dp</dimen>
+    <dimen name="text_12sp">12sp</dimen>
+    <dimen name="text_11sp">11sp</dimen>
+    <dimen name="m150">150dp</dimen>
+    <dimen name="text_28sp">28sp</dimen>
+</resources>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Help"
+    tools:showIn="@layout/activity_help">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m10"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+             
+                android:text="@string/send_money"
+                android:textSize="@dimen/text_28sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/m150"
+            android:layout_marginBottom="@dimen/m20"
+            android:background="@color/intro_3"
+            android:src="@drawable/qr_img"
+            android:contentDescription="@string/send_money_bg" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/m15"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/m15"
+            tools:ignore="RtlHardcoded">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/press_the_send_button_on_the_home_page"
+
+                android:drawableStart="@drawable/ic_arrow_right"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/you_must_allow_camera_permission_to_scan_qr"
+
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+
+                android:text="@string/scan_the_qr_on_the_receivers_phone_or_posted_on_a_store_front"
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/enter_the_amount_that_you_want_to_send"
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/enter_your_pin_and_send_the_money"
+                android:drawableStart="@drawable/ic_arrow_right" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m20"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/m10"
+             
+                android:text="@string/receive_money"
+                android:textSize="@dimen/text_28sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/m150"
+            android:layout_marginBottom="@dimen/m20"
+            android:background="@color/blue_bg"
+            android:src="@drawable/qr_post"
+            android:contentDescription="@string/recive_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/m15"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/m15"
+            tools:ignore="RtlHardcoded">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/press_the_receive_button_on_the_home_page"
+
+                android:drawableStart="@drawable/ic_arrow_right"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/you_must_allow_the_read_phone_status_permission_to_generate_qr_code"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+
+             
+                android:text="@string/you_can_save_the_qr_code_as_an_image_and_post_it_on_your_store_front_for_store_owners"
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/make_sure_you_receive_sms_from_cbe_notifying_you_that_you_have_received_money"
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m20"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/m10"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                 
+                    android:text="@string/buy_airtime"
+                    android:textSize="@dimen/text_28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m150"
+            android:layout_marginBottom="@dimen/m20"
+            android:background="@color/buyairtimebg"
+            android:src="@drawable/top_uppng"
+            android:contentDescription="@string/buy_airtime_info" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/m15"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/m15"
+            tools:ignore="RtlHardcoded">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/press_the_buy_airtime_button_from_the_home_menu"
+
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/if_you_want_to_buy_airtime_for_another_phone_number_toggle_the_buy_airtime_to_another_number_switch"
+
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/if_you_want_to_buy_it_for_your_self_leave_the_switch_button_off"
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/enter_any_amount_you_want_not_restricted_to_5_10_15_50_or_100"
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m5"
+
+                android:drawableLeft="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/m10"
+
+             
+                android:text="@string/enter_your_cbe_birr_pin_and_buy_your_airtime"
+                android:drawableStart="@drawable/ic_arrow_right" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="@dimen/m10"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+             
+                android:text="@string/for_further_help" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+             
+                android:text="@string/biniyamdaniel_47_gmail_com"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

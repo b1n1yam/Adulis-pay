@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:id="@+id/no_ntw_content"
+    >
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:tint="#ff6f00"
+        android:src="@drawable/ic_no_ntw"
+        android:contentDescription="@string/no_internet" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_internet_connection"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_your_internet_setting_and_try_again"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        />
+    <Button
+        android:id="@+id/btn_try_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/try_again"
+        android:background="@color/colorPrimaryDark"
+        android:textAllCaps="false"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:textColor="#fff"
+        />
+</LinearLayout>

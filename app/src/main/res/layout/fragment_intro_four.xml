@@ -1,0 +1,40 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF5252"
+    tools:context="com.biniyam.hands_freemoneytransfer.IntroFiles.intro4">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="60dp"
+        android:text="@string/get_covid_19_case_statstics"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="360dp"
+        android:src="@drawable/covid_stat"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/covid_19_stat_image" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textAlignment="center"
+        android:text="@string/get_ethiopia_s_and_other_countries_realtime_corona_virus_cases"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="105sp"
+        android:layout_marginLeft="30dp"
+        android:textSize="15.5sp"
+        android:layout_marginRight="30dp"
+
+        />
+</FrameLayout>

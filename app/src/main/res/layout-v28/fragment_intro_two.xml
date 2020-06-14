@@ -1,0 +1,40 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00838f"
+    tools:context="com.biniyam.hands_freemoneytransfer.IntroFiles.intro2">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="60dp"
+        android:text="@string/avoid_hand_to_hand_payment"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:src="@drawable/no_hands"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/avoid_hand_to_hand_transaction" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textAlignment="center"
+        android:text="@string/the_world_health_organisation_who_have_advised_people_to_use_contactless_payments_instead_of_cash_to_reduce_the_risk_of_covid_19_transmission"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="105sp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15.5sp"
+        android:layout_marginRight="10dp"
+        android:lineHeight="20sp"
+        />
+</FrameLayout>

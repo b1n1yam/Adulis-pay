@@ -1,0 +1,111 @@
+<resources>
+
+    <string name="app_name">Hands-Free</string>
+    <string name="title_activity_send_money">ገንዘብ አስተላልፍ</string>
+    <string name="title_activity_check_balance">ቀሪ ሂሳብ</string>
+    <string name="title_activity_buy_airtime">የአየር ሰአት ግዛ</string>
+    <string name="title_activity_pay_bill">ቢል ክፈል</string>
+    <string name="title_activity_balance">Balance</string>
+    <string name="title_activity_scan_qr"> QR ምስሉን ቃኝ</string>
+    <string name="title_activity_about_corona">ሰለ COVID-19 መረጃ</string>
+    <string name="title_activity_help">እርዳታ</string>
+    <string name="get_covid_stat_bottom_text">ሰለ COVID-19 ትኩስ መረጃ ያግኙ</string>
+    <string name="ethiopia">ኢትዮጵያ</string>
+    <string name="new_case">አዲስ የተመዘገበ</string>
+    <string name="active_cases">አጠቃላይ የተጠቁ</string>
+
+    <string name="top_3_affected_countries">በብዛት የተጠቁ ሃገራት</string>
+    <string name="new_cases">አዲስ የተመዘገበ</string>
+
+    <string name="deaths">ሞት</string>
+
+
+    <string name="by_biniyam_daniel">By Biniyam Daniel</string>
+    <string name="made_with">Made With</string>
+    <string name="heart_shape">heart_shape</string>
+
+    <string name="enter_pin">የይለፍ ቃልዎል ያስገቡ</string>
+    <string name="cbe_hint">የ CBE Birr ይለፍ ቃልዎል ያስገቡ</string>
+    <string name="check">ቀጥል</string>
+    <string name="buy_airtime_to_another_number">ለሌላ ቁጥር የአየር ሰአት ግዛ?</string>
+    <string name="enter_phone_number">ሰልክ ቁጥር አስገባ</string>
+    <string name="pick_contact">pick contact</string>
+    <string name="card_amount">የካርዱ መጠን</string>
+    <string name="buy">ግዛ</string>
+    <string name="send_money_icon">ገንዘብ አስተላልፍ icon</string>
+    <string name="send_money">ገንዘብ አስተላልፍ</string>
+    <string name="buy_airtime_icon_feedback">buy airtime icon</string>
+    <string name="buy_airtime">የአየር ሰአት ግዛ</string>
+    <string name="pay_bill_icon_feed">pay bill icon feed</string>
+    <string name="pay_bill">ቢል ክፈል</string>
+    <string name="balance">ቀሪ ሂሳብ</string>
+    <string name="icon_info">icon info</string>
+    <string name="covid_19_cases">ሰለ COVID-19 መረጃ</string>
+    <string name="send_icon">send icon</string>
+    <string name="send">ላክ</string>
+    <string name="recive_icon">recive icon</string>
+    <string name="receive">ተቀበል</string>
+
+    <string name="send_money_bg">ገንዘብ አስተላልፍ bg</string>
+    <string name="scan_the_qr_on_the_receivers_phone_or_posted_on_a_store_front">የስልክዎ ካሜራ QR ኮዱን እንዲያነብ ያድርጉ</string>
+    <string name="enter_the_amount_that_you_want_to_send">መላክ የሚፈልጉትን መጠን ያስገቡ</string>
+    <string name="enter_your_pin_and_send_the_money">የይለፍ ቃልዎል ያስገቡ </string>
+    <string name="press_the_send_button_on_the_home_page">ላክ የሚለውን ምርጫ ይጫኑ ወይንም ገንዘብ ለመላክ የሚለውን ማውጫ ይምረጡ</string>
+    <string name="receive_money">ገንዘብ ተቀበል</string>
+    <string name="press_the_receive_button_on_the_home_page">ተቀበል የሚለውን ምርጫ ከዋናው ማውጫ ላይ ይምረጡ</string>
+    <string name="make_sure_you_receive_sms_from_cbe_notifying_you_that_you_have_received_money">ገንዘብ መቀበሎትን የሚያረጋግጥ መልዕክት ከ ሲ.ቢ.ኢ እንደደረስዎት ያረጋግጡ</string>
+
+    <string name="press_the_buy_airtime_button_from_the_home_menu">አየር ሰዓት መግዣ የሚለውን ምርጫ ከዋናው ማውጫ ላይ ይምረጡ</string>
+    <string name="if_you_want_to_buy_airtime_for_another_phone_number_toggle_the_buy_airtime_to_another_number_switch">የአየር ሰዓቱን ለሌላ ቁጥር መግዛት ከፈለጉ የሌላ ቁጥር አየር ሰዓት  የሚለውን ይጫኑ</string>
+    <string name="if_you_want_to_buy_it_for_your_self_leave_the_switch_button_off">ለረስዎ መግዛት ከፈለጉ መቀየሪያ የሚለውን ያጥፉ</string>
+    <string name="enter_any_amount_you_want_not_restricted_to_5_10_15_50_or_100">የፈለጉትን መጠን ያሰገቡ(ያልተገደበ 5፣10፣15፣50 ወይንም100)</string>
+    <string name="enter_your_cbe_birr_pin_and_buy_your_airtime">የሲ.ቢ.ኢ ብር የይለፍ ቃልዎን ያስገቡ</string>
+    <string name="for_further_help">ለበለጠ መረጃ:</string>
+    <string name="biniyamdaniel_47_gmail_com">biniyamdaniel.47@gmail.com</string>
+    <string name="buy_airtime_info">የአየር ሰአት ግዛ</string>
+    <string name="input_shortcode">ሾርትኮዱን ያስገቡ</string>
+    <string name="bill_reference_number">ቢል ማስተላለፊያ ቁጥሩን ያስገቡ</string>
+    <string name="pay">ክፈል</string>
+    <string name="enter_amount">መጠኑን ያስገቡ </string>
+
+    <string name="enter_cbe_birr_pin">የ CBE birr ይለፍ ቃልዎል ያስገቡ</string>
+    <string name="if_you_haven_t_already">እስካሁን ካልፈቀዱ...</string>
+    <string name="accept_permissions">ፍቃድ ይስጡ </string>
+    <string name="in_settings_apps_hands_free_permissions_make_sure_the_permission_is_enabled"><![CDATA[ Settings > Apps > Hands-free > permissions , ሁሉም ፍቃዶች መፈቀዳቸውን ያረጋግጡ]]></string>
+    <string name="allow_permission">Allow permission</string>
+    <string name="get_covid_19_case_statstics">ሰለ COVID-19 ትኩስ መረጃዎችን ያግኙ</string>
+    <string name="get_ethiopia_s_and_other_countries_realtime_corona_virus_cases">በአሁኑ ሰዓት በኢትዮጽያ እና በሌሎች ሀገሮች የሚገኘውን የኮሮና ቫይረስ መጠን ማወቅ</string>
+    <string name="covid_19_stat_image">covid 19 stat image</string>
+    <string name="pre_requisite">በመጀመርያ…</string>
+
+    <string name="this_application_is_applicable_for_cbe_birr_users_only_you_must_be_registered_to_cbe_birr_with_this_phone_number_inorder_to_use_most_of_the_application">ይሄ አፕሊኬሽን ለሲ.ቢ.ኢ ብር ተጠቃሚዎች ብቻ የሚሰራ ነው። አብዛኛውን አፕሊኬሽን ለመጠቀም ሲ.ቢ.ኢ ላይ በቁጥርዎት መመዝገብ ይኖርቦታል።</string>
+    <string name="cbe_birr_desc">cbe birr desc</string>
+    <string name="scan_amp_pay">QR በማንበብ ክፍያውን ይክፈሉ</string>
+    <string name="scan_to_pay_image">scan to pay image</string>
+    <string name="simply_scan_the_qr_code_that_is_on_the_receiver_s_mobile_phone_or_scan_it_from_a_printed_paper_and_perform_your_payment">
+   በቀላሉ QR ኮዱን ከተቀባዩ ስልክ ወይም ምስሉ ካለበት ከወረቀት ላይ በማንበብ ክፍያውን ይክፈሉ።</string>
+    <string name="avoid_hand_to_hand_payment">ንክኪ ማይበዛበትን የክፍያ ይክፈሉ!</string>
+    <string name="avoid_hand_to_hand_transaction">ክኪ ማይበዛበትን የክፍያ ይክፈሉ!</string>
+    <string name="the_world_health_organisation_who_have_advised_people_to_use_contactless_payments_instead_of_cash_to_reduce_the_risk_of_covid_19_transmission">
+    የአለም የጤና ድርጅት የኮሮና ቫይረስ ስርጭትን ለመቀነስ ብርን ከመጠቀም ይልቅ ንክኪ ማይበዛበትን የክፍያ ሁኔታን መጠቀም እንደሚሻል መክሯል።</string>
+    <string name="please_enter_your_phone_no">እባክዎ የየስልክ ቁጥሮን ያስገቡ </string>
+    <string name="we_were_unable_to_get_your_phone_automatically">የስልክ ቁጥሮን ለማግኘት ተቸግረናል </string>
+    <string name="your_phone_number">የስልክ ቁጥሮን</string>
+    <string name="error_message">error message</string>
+
+    <string name="please_wait">እባክዎ ይጠበቁ…</string>
+    <string name="no_internet">no internet</string>
+    <string name="no_internet_connection">ከ ኢንተርኔት ጋር መገናኘት አልተቻለም</string>
+    <string name="check_your_internet_setting_and_try_again">የ ስልክዎን የኢንተርኔት ሴቲንግ ያስተካክሉ </string>
+    <string name="try_again">ድጋሚ ሞከር</string>
+    <string name="save_qr_code_to_phone">የ QR ምስሉን ስልክዎ ላይ ያስቀምጡ</string>
+
+    <string name="your_phone">የስልክ ቁጥሮን</string>
+    <string name="done">ጨርስ</string>
+    <string name="mobile">mobile</string>
+    <string name="waiting_for_sender">ተቀባዩን በመጠበቅ ላይ…</string>
+    <string name="qr">qr</string>
+    <string name="save_img">ምስሉን ያስቀምጡ</string>
+
+
+</resources>

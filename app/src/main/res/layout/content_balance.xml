@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_balance">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="@dimen/m_30"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+            <EditText
+                android:id="@+id/balance_pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/enter_pin"
+                android:inputType="numberPassword"
+                tools:ignore="Autofill" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/m43"
+            android:layout_marginTop="@dimen/m40"
+            android:layout_gravity="center"
+            android:background="@color/colorAccent"
+            android:paddingLeft="@dimen/m45"
+            android:paddingRight="@dimen/m45"
+            android:textColor="@color/color_white"
+            android:text="@string/check"
+            />
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

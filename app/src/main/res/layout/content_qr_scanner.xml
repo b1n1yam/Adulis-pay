@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <me.dm7.barcodescanner.zxing.ZXingScannerView
+        android:id="@+id/zxscan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_alignParentBottom="true"
+    android:gravity="center">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/option_phone_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="10dp"
+
+
+        android:layout_marginBottom="@dimen/m20"
+        android:clickable="true"
+        app:cardUseCompatPadding="true"
+        >
+
+        <LinearLayout
+            android:layout_marginRight="@dimen/m10"
+            android:layout_marginLeft="@dimen/m10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OR, ENTER PHONE NUMBER"
+                android:textSize="@dimen/text_18sp"
+                android:textColor="@color/color_white"
+                android:padding="@dimen/m10"
+                />
+            <ImageView
+                android:layout_width="@dimen/m20"
+                android:layout_height="@dimen/m20"
+                android:src="@drawable/ic_call"
+                android:layout_gravity="center"
+                android:tint="@color/color_white"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+
+</RelativeLayout>

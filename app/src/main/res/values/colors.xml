@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2e7d32</color>
+    <color name="colorPrimaryDark">#1b5e20</color>
+    <color name="colorAccent">#4ca047</color>
+    <color name="intro_3">#4bda98</color>
+    <color name="send_money_bg">#82C9D8</color>
+    <color name="new_case">#ff9800</color>
+    <color name="text_color_black">#333</color>
+    <color name="active_case">#ff5722</color>
+    <color name="deaths">#f44336</color>
+    <color name="death">#f44336</color>
+    <color name="gray">#424242</color>
+    <color name="ligt_gray">#bbb7f4</color>
+    <color name="pay_bill_bg">#FF9C9C</color>
+    <color name="color_white">#fff</color>
+    <color name="blue_bg">#64c6cf</color>
+    <color name="buyairtimebg">#a783fd</color>
+
+    <color name="redPrimary">#F44336</color>
+    <color name="redDark">#B71C1C</color>
+
+    <color name="bluePrimary">#2196f3</color>
+    <color name="blueDark">#0d47a1</color>
+
+    <color name="cbePrimary">#9c27b0</color>
+    <color name="cbeDark">#6a1b9a</color>
+
+</resources>

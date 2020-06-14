@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.biniyam.hands_freemoneytransfer">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".DSTVPayment"
+            android:label="@string/title_activity_d_s_t_v_payment"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <receiver
+            android:name=".SMSListner"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".Help"
+            android:label="@string/title_activity_help"
+            android:parentActivityName=".GridLayout"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
+        </activity>
+        <activity
+            android:name=".Intro"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutCorona"
+            android:label="@string/title_activity_about_corona"
+            android:parentActivityName=".GridLayout"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
+        </activity>
+        <activity
+            android:name=".Balance"
+            android:label="@string/title_activity_balance"
+            android:parentActivityName=".GridLayout"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
+        </activity>
+        <activity
+            android:name=".PayBill"
+            android:label="@string/title_activity_pay_bill"
+            android:parentActivityName=".GridLayout"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
+        </activity>
+        <activity
+            android:name=".BuyAirtime"
+            android:label="@string/title_activity_buy_airtime"
+            android:parentActivityName=".GridLayout"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
+        </activity>
+        <activity
+            android:name=".CheckBalance"
+            android:label="@string/title_activity_check_balance"
+            android:parentActivityName=".GridLayout"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
+        </activity>
+        <activity
+            android:name=".QR_ScannerActivity"
+            android:label="@string/title_activity_scan_qr"
+            android:parentActivityName=".GridLayout">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
+        </activity>
+        <activity
+            android:name=".SendMoney"
+            android:label="@string/title_activity_send_money"
+            android:parentActivityName=".GridLayout"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
+        </activity>
+        <activity android:name=".GridLayout" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

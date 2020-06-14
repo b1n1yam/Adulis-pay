@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_buy_airtime">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m10"
+            app:cardCornerRadius="8dp" >
+            <Switch
+                android:id="@+id/mine_or_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buy_airtime_to_another_number"
+                android:layout_margin="@dimen/m10"
+                />
+
+            <LinearLayout
+                android:id="@+id/other_phone_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="@dimen/m10"
+                android:layout_marginBottom="15dp"
+                android:layout_marginStart="@dimen/m10">
+
+
+                    <EditText
+                        android:id="@+id/other_phoneno"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/enter_phone_number"
+                        android:inputType="phone"
+                        android:autofillHints="" />
+
+                    <ImageButton
+                        android:id="@+id/open_contact_to_air"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_contacts"
+                        android:tint="?attr/colorPrimaryDark"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/pick_contact" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m10"
+            app:cardCornerRadius="8dp" >
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/m10"
+                >
+
+
+                <EditText
+                    android:id="@+id/balance_ammount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/card_amount"
+                    android:inputType="number" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m10"
+            app:cardCornerRadius="8dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <EditText
+                    android:id="@+id/air_pin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/enter_pin"
+                    android:inputType="numberPassword"
+                    android:layout_margin="@dimen/m10"
+                    android:autofillHints="Your CBE birr pin" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/m43"
+            android:layout_marginTop="@dimen/m40"
+            android:layout_gravity="center"
+            android:background="@color/colorAccent"
+            android:paddingLeft="@dimen/m45"
+            android:paddingRight="@dimen/m45"
+            android:textColor="@color/color_white"
+            android:text="@string/buy"
+            />
+
+
+    </LinearLayout>
+</ScrollView>
