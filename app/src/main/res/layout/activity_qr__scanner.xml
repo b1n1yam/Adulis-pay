@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.biniyam.hands_freemoneytransfer.QR_ScannerActivity">
 
+    <include layout="@layout/view_curton" />
+
 
     <include layout="@layout/content_qr_scanner" />
 

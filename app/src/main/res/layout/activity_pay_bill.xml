@@ -21,6 +21,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_pay_bill" />
+
     <TextView
         android:id="@+id/covid_btn"
         android:layout_gravity="bottom"

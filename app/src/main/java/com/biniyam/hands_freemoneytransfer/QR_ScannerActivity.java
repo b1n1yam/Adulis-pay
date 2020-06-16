@@ -8,11 +8,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.biniyam.hands_freemoneytransfer.utils.Common;
+import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.zxing.Result;
@@ -62,6 +65,8 @@ public class QR_ScannerActivity extends AppCompatActivity implements ZXingScanne
         next = findViewById(R.id.option_btn_next);
         phone = findViewById(R.id.option_phone);
         contacts = findViewById(R.id.option_contacts);
+
+
 
         //Request permission
         Dexter.withActivity(this)
@@ -163,10 +168,18 @@ public class QR_ScannerActivity extends AppCompatActivity implements ZXingScanne
     }
 
 
+
+
     @Override
     protected void onDestroy() {
         scannerView.stopCamera();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        scannerView.startCamera();
+        super.onResume();
     }
 
     @Override
@@ -177,15 +190,27 @@ public class QR_ScannerActivity extends AppCompatActivity implements ZXingScanne
         try {
             phone = Common.decodePhone(rawResult.getText());//decode
             Toast.makeText(this, phone, Toast.LENGTH_SHORT).show();
-            //close this activity and populate the result
-            Intent i = new Intent(QR_ScannerActivity.this, SendMoney.class);
-            i.putExtra("phone", phone);
-           // startActivity(i);
+            if (!phoneValidator(phone))
+               { Toast.makeText(this, "Invalid QR code", Toast.LENGTH_SHORT).show();
+                   Intent i = new Intent(QR_ScannerActivity.this, GridLayout.class);
+                   startActivity(i);
+               }
+
+            else {
+                //close this activity and populate the result
+                Intent i = new Intent(QR_ScannerActivity.this, SendMoney.class);
+                i.putExtra("phone", phone);
+                startActivity(i);
+            }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             Toast.makeText(this, "Invalid QR code", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private boolean phoneValidator(String phone) {
+        return PhoneNumberUtils.isGlobalPhoneNumber(phone);
     }
 
     @Override
@@ -199,11 +224,11 @@ public class QR_ScannerActivity extends AppCompatActivity implements ZXingScanne
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode){
+        switch (requestCode) {
             case 47:
 
-                try{
-                    if (resultCode== Activity.RESULT_OK) {
+                try {
+                    if (resultCode == Activity.RESULT_OK) {
                         Uri contactData = data.getData();
 
                         assert contactData != null;
@@ -223,14 +248,14 @@ public class QR_ScannerActivity extends AppCompatActivity implements ZXingScanne
                         }
 
                         phone.setText(phoneNum);
-                        Toast.makeText(QR_ScannerActivity.this,name+": "+phoneNum,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(QR_ScannerActivity.this, name + ": " + phoneNum, Toast.LENGTH_SHORT).show();
 
 
                         c.close();
 
                     }
-                }catch(Exception e){
-                    Log.e("Error",e.getMessage());
+                } catch (Exception e) {
+                    Log.e("Error", e.getMessage());
 
                 }
 

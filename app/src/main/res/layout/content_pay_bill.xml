@@ -12,8 +12,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+        <include layout="@layout/view_curton" />
 
-        
+
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +61,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="@string/bill_reference_number"
-                        android:inputType="number"
+                        android:inputType="text"
                         tools:ignore="Autofill" />
                 </com.google.android.material.textfield.TextInputLayout>
 

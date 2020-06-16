@@ -9,23 +9,36 @@
     </style>
 
     <!-- blue application theme-->
-    <style name="Theme.blue" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="awash_theme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/redPrimary</item>
-        <item name="colorPrimaryDark">@color/redDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorPrimary">@color/bluePrimary</item>
+        <item name="colorPrimaryDark">@color/blueDark</item>
+        <item name="colorAccent">@color/bluePrimary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- red application theme-->
-    <style name="Theme.red" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="cbe_theme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/bluePrimary</item>
-        <item name="colorPrimaryDark">@color/blueDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/cbePrimary</item>
+        <item name="colorPrimaryDark">@color/cbeDark</item>
+        <item name="colorAccent">@color/cbePrimary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 
     <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="cbe_theme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="awash_theme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

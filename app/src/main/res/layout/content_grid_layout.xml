@@ -29,10 +29,10 @@
             />
         <androidx.gridlayout.widget.GridLayout
             app:columnCount="2"
-            app:rowCount="3"
+            app:rowCount="4"
 
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="wrap_content"
 
 
             android:padding="@dimen/m10"
@@ -43,7 +43,7 @@
                 android:layout_marginTop="@dimen/m10"
                 android:id="@+id/c1r1"
                 android:layout_width="@dimen/m0"
-                android:layout_height="@dimen/m0"
+                android:layout_height="107dp"
                 app:layout_columnWeight="1"
                 app:cardBackgroundColor="@color/send_money_bg"
                 app:layout_rowWeight="1"
@@ -85,17 +85,18 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="@dimen/m10"
+                android:layout_marginTop="10dp"
                 android:id="@+id/c2r1"
                 android:layout_width="@dimen/m0"
-                android:layout_height="@dimen/m0"
+                android:layout_height="107dp"
                 app:layout_columnWeight="1"
                 app:layout_rowWeight="1"
                 android:layout_marginBottom="@dimen/m25"
                 android:layout_marginLeft="@dimen/m10"
                 android:layout_marginRight="@dimen/m10"
                 app:cardElevation="@dimen/m8"
-                app:cardBackgroundColor="@color/ligt_gray"
+                app:cardBackgroundColor="#D8BFA8"
+
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="@dimen/m8"
@@ -109,31 +110,32 @@
 
 
                     <ImageView
-                        android:layout_width="58dp"
-                        android:layout_height="58dp"
-                        android:layout_marginTop="@dimen/m10"
-                        android:src="@drawable/top_uppng"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/balance_"
                         android:layout_gravity="right"
-                        tools:ignore="RtlHardcoded"
-                        android:contentDescription="@string/buy_airtime_icon_feedback" />
+                        tools:ignore="ContentDescription,RtlHardcoded" />
 
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/buy_airtime"
+                        android:text="@string/balance"
                         android:layout_marginLeft="@dimen/m10"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/text_16_sp"
                         android:layout_marginStart="@dimen/m10" />
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
+
             <androidx.cardview.widget.CardView
+                android:layout_marginTop="10dp"
                 android:id="@+id/c1r2"
                 android:layout_width="@dimen/m0"
-                android:layout_height="@dimen/m0"
+                android:layout_height="107dp"
                 app:layout_columnWeight="1"
                 app:layout_rowWeight="1"
                 android:layout_marginBottom="@dimen/m25"
@@ -177,16 +179,148 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:layout_marginTop="@dimen/m10"
                 android:id="@+id/c2r2"
                 android:layout_width="@dimen/m0"
-                android:layout_height="@dimen/m0"
+                android:layout_height="107dp"
                 app:layout_columnWeight="1"
                 app:layout_rowWeight="1"
                 android:layout_marginBottom="@dimen/m25"
                 android:layout_marginLeft="@dimen/m10"
                 android:layout_marginRight="@dimen/m10"
                 app:cardElevation="@dimen/m8"
-                app:cardBackgroundColor="#fbb15a"
+                app:cardBackgroundColor="@color/ligt_gray"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/m8"
+
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+
+                    <ImageView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:layout_marginTop="@dimen/m10"
+                        android:src="@drawable/top_uppng"
+                        android:layout_gravity="right"
+                        tools:ignore="RtlHardcoded"
+                        android:contentDescription="@string/buy_airtime_icon_feedback" />
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/buy_airtime"
+                        android:layout_marginLeft="@dimen/m10"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_16_sp"
+                        android:layout_marginStart="@dimen/m10" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/c2r3"
+                android:layout_width="@dimen/m0"
+                android:layout_height="107dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                android:layout_marginBottom="@dimen/m25"
+                android:layout_marginLeft="@dimen/m10"
+                android:layout_marginRight="@dimen/m10"
+                app:cardElevation="@dimen/m8"
+                app:cardBackgroundColor="#b5dbff"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/m8"
+
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/balance_"
+                        android:layout_gravity="right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/m10"
+                        android:layout_marginLeft="@dimen/m10"
+                        android:text="School Fees"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_16_sp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/c1r4"
+                android:layout_width="@dimen/m0"
+                android:layout_height="107dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                android:layout_marginBottom="@dimen/m25"
+                android:layout_marginLeft="@dimen/m10"
+                android:layout_marginRight="@dimen/m10"
+                app:cardElevation="@dimen/m8"
+                app:cardBackgroundColor="#ffb36f"
+
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/m8"
+
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/balance_"
+                        android:layout_gravity="right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/m10"
+                        android:layout_marginLeft="@dimen/m10"
+                        android:text="Airlines E-Ticket"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_16_sp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/c2r4"
+                android:layout_width="@dimen/m0"
+                android:layout_height="107dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                android:layout_marginBottom="@dimen/m25"
+                android:layout_marginLeft="@dimen/m10"
+                android:layout_marginRight="@dimen/m10"
+                app:cardElevation="@dimen/m8"
+                app:cardBackgroundColor="#64e8bc"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="@dimen/m8"
@@ -211,7 +345,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/balance"
+                        android:text="DSTV"
                         android:layout_marginLeft="@dimen/m10"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/text_16_sp"
@@ -221,9 +355,11 @@
             </androidx.cardview.widget.CardView>
 
 
+
         </androidx.gridlayout.widget.GridLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

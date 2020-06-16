@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -28,9 +29,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 
 import com.biniyam.hands_freemoneytransfer.utils.Common;
+import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
 import com.biniyam.hands_freemoneytransfer.utils.UssdHelper;
 
@@ -55,6 +58,18 @@ public class BuyAirtime extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences(NAME, Context.MODE_PRIVATE);
+        final int bank = sharedPreferences.getInt(KEY, 0);
+        if(bank==0){
+            setTheme(R.style.cbe_theme);
+        }
+        else if(bank==1){
+            setTheme(R.style.awash_theme);
+        }
+        else{
+            setTheme(R.style.AppTheme);
+        }
         super.onCreate(savedInstanceState);
 
         //change theme
@@ -66,8 +81,6 @@ public class BuyAirtime extends AppCompatActivity {
         animationUp = AnimationUtils.loadAnimation(this, R.anim.slide_up);
         animationDown = AnimationUtils.loadAnimation(this, R.anim.slide_down);
 
-        SharedPreferences sharedPreferences = this.getSharedPreferences(NAME, Context.MODE_PRIVATE);
-        final int bank = sharedPreferences.getInt(KEY, 0);
         Toast.makeText(this, String.valueOf(bank), Toast.LENGTH_SHORT).show();
 
         //initializing views
@@ -80,6 +93,7 @@ public class BuyAirtime extends AppCompatActivity {
         contacts = findViewById(R.id.open_contact_to_air);
         covid = findViewById(R.id.covid_btn);
 
+        initCrouton();
         covid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -322,5 +336,25 @@ public class BuyAirtime extends AppCompatActivity {
         }
     }
 
+    private void initCrouton() {
+        //crouton
+        CardView crouton;
+        TextView bank;
+        ImageView close;
+
+        crouton= findViewById(R.id.crouton);
+        bank =findViewById(R.id.bank);
+        close =findViewById(R.id.close);
+
+        final Crouton croutonCreator=new Crouton(this,crouton,bank,close);
+        croutonCreator.setBank();
+        croutonCreator.animateInCard();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                croutonCreator.closeCrouton();
+            }
+        });
+    }
 
 }

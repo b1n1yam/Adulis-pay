@@ -40,7 +40,6 @@ import com.biniyam.hands_freemoneytransfer.utils.CapturePhotoUtils;
 import com.biniyam.hands_freemoneytransfer.utils.Common;
 import com.biniyam.hands_freemoneytransfer.utils.GenerateQrCode;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
-import com.biniyam.hands_freemoneytransfer.utils.ThemeColors;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.snackbar.Snackbar;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
@@ -56,11 +55,12 @@ import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
 public class GridLayout extends AppCompatActivity {
 
     private static final String NAME = "ActiveBank", KEY = "bank";
+    private final int ANIM_INIT = 400;
     String mPhoneNumber = "";
     Context mAppContext = GridLayout.this;
     GenerateQrCode qrCode = new GenerateQrCode();
-    private CardView c1R1, c2R1, c1R2, c2R2, btn_send, btn_recive;
-    private Animation anim1, anim2, anim3, anim4, anim5, anim6, anim7;
+    private CardView c1R1, c2R1, c1R2, c2R2, c1R3, c2R3, c1R4, c2R4, btn_send, btn_recive;
+    private Animation anim1, anim2, anim3, anim4, anim5, anim6, anim7, anim8, anim9, anim10, anim11, anim12;
     private BottomSheetBehavior sheetBehavior;
     private LinearLayout bottom_sheet, coronaBtn, qrContent, setPhoneContent, loadingView;
     private ImageView qrImage;
@@ -71,6 +71,8 @@ public class GridLayout extends AppCompatActivity {
     private Button setPhone;
     private EditText phone;
     private BroadcastReceiver broadcastReceiver;
+    private ArrayList<CardView> cards = new ArrayList<>();
+    private int animStart, animVar = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,17 @@ public class GridLayout extends AppCompatActivity {
         c2R1 = findViewById(R.id.c2r1);
         c1R2 = findViewById(R.id.c1r2);
         c2R2 = findViewById(R.id.c2r2);
+        c2R3 = findViewById(R.id.c2r3);
+        c1R4 = findViewById(R.id.c1r4);
+        c2R4 = findViewById(R.id.c2r4);
+
+        cards.add(c1R1);
+        cards.add(c2R1);
+        cards.add(c1R2);
+        cards.add(c2R2);
+        cards.add(c2R3);
+        cards.add(c1R4);
+        cards.add(c2R4);
         btn_send = findViewById(R.id.btn_send);
         btn_recive = findViewById(R.id.btn_recive);
         bottom_sheet = findViewById(R.id.bottom_sheet);
@@ -96,10 +109,6 @@ public class GridLayout extends AppCompatActivity {
         if (checkForAllPermission()) {
             generateQr();
         }
-        scaleAnim(c1R1, anim1, 600);
-        scaleAnim(c2R1, anim2, 800);
-        scaleAnim(c1R2, anim3, 1000);
-        scaleAnim(c2R2, anim4, 1200);
 
 
         slideAnim(btn_send, anim5, 600);
@@ -117,7 +126,7 @@ public class GridLayout extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        c2R1.setOnClickListener(new View.OnClickListener() {
+        c2R2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(GridLayout.this, BuyAirtime.class);
@@ -131,7 +140,7 @@ public class GridLayout extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        c2R2.setOnClickListener(new View.OnClickListener() {
+        c2R1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(GridLayout.this, Balance.class);
@@ -331,6 +340,7 @@ public class GridLayout extends AppCompatActivity {
         walletLogo.add(R.drawable.cbe_wallet);
         walletLogo.add(R.drawable.awash_wallet);
         walletLogo.add(R.drawable.oro_cash);
+
         SharedPreferences sp = getSharedPreferences("com.biniyam.hands_freemoneytransfer", Context.MODE_PRIVATE);
         String cbeBalance = sp.getString(Common.CBE_CONTACT, "");
         String cbeUpdated = sp.getString(Common.CBE_CONTACT + "_updated", "");
@@ -353,7 +363,7 @@ public class GridLayout extends AppCompatActivity {
 
 
         DiscreteScrollView slider = findViewById(R.id.slider);
-        BankAdapter categoryAdapter = new BankAdapter(GridLayout.this, cardBg, walletNames, lastUpdates, balances, balanceExist,walletLogo);
+        BankAdapter categoryAdapter = new BankAdapter(GridLayout.this, cardBg, walletNames, lastUpdates, balances, balanceExist, walletLogo);
         slider.setAdapter(categoryAdapter);
         slider.setItemTransformer(new ScaleTransformer.Builder()
                 .setMaxScale(1.0f)
@@ -363,7 +373,8 @@ public class GridLayout extends AppCompatActivity {
                 .build()
         );
 
-
+        SharedPreferences sharedPreferences = this.getSharedPreferences(NAME, Context.MODE_PRIVATE);
+        int bank = sharedPreferences.getInt(KEY, 0);
         slider.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
             @Override
             public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int i) {
@@ -373,32 +384,32 @@ public class GridLayout extends AppCompatActivity {
 
                 switch (i) {
                     case 1:
+                        showAwash();
 
                         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluePrimary)));
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
                             getWindow().setStatusBarColor(getResources().getColor(R.color.blueDark));
                         }
-                        Toast.makeText(mAppContext, "Awash Bank", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-
+                        showOro();
                         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
                             getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
                         }
-                        Toast.makeText(mAppContext, "Abay Bank", Toast.LENGTH_SHORT).show();
 
                         break;
                     default:
+                        showCBE();
+
                         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.cbePrimary)));
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
                             getWindow().setStatusBarColor(getResources().getColor(R.color.cbeDark));
                         }
-                        Toast.makeText(mAppContext, "CBE Birr", Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -406,6 +417,61 @@ public class GridLayout extends AppCompatActivity {
             }
         });
     }
+
+    private void showAwash() {
+        animStart = ANIM_INIT;
+
+        for (CardView card : cards) {
+            showViews(card);
+        }
+    }
+
+
+    private void showCBE() {
+        animStart = ANIM_INIT;
+        for (CardView card : cards) {
+            if (card == c2R3 || card == c1R4 || card == c2R4) {
+                hideViews(card);
+            } else {
+                showViews(card);
+            }
+        }
+
+    }
+
+    private void showOro() {
+        animStart = ANIM_INIT;
+
+        for (CardView card : cards) {
+            if (card == c1R1 || card == c2R1) {
+                showViews(card);
+
+            } else {
+                hideViews(card);
+            }
+        }
+    }
+
+    private void showViews(CardView card) {
+        if (card.getVisibility() != View.VISIBLE) {//check if the view is already visible
+            Animation myAnim = null;
+            scaleAnim(card, myAnim, animStart);
+            card.setVisibility(View.VISIBLE);
+            animStart += animVar;
+
+        }
+    }
+
+    private void hideViews(CardView card) {
+
+        if (card.getVisibility() != View.GONE) {//check if the view is already gone
+            Animation myAnim = null;
+            scaleDownAnim(card, myAnim, 400, card);
+
+
+        }
+    }
+
 
     private void registerReceiver() {
         broadcastReceiver = new BroadcastReceiver() {
@@ -528,6 +594,32 @@ public class GridLayout extends AppCompatActivity {
 
         anim.setDuration(duration);
         gridCard.startAnimation(anim);
+
+    }
+
+    protected void scaleDownAnim(CardView gridCard, Animation anim, long duration, final CardView mCard) {
+        anim = AnimationUtils.loadAnimation(this, R.anim.scale_down);
+
+        anim.setDuration(duration);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mCard.setVisibility(View.GONE);
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        gridCard.startAnimation(anim);
+
 
     }
 

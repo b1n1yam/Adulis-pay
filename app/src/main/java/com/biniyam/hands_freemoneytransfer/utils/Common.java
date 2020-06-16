@@ -26,6 +26,7 @@ public class Common {
     public final static int AWASH_SMS_STRUCTURE = 5000;
     public final static int ORO_CASH_SMS_STRUCTURE = 5000;
     public final static String CBE_CONTACT = "CBE Birr";
+    public  final static String NAME = "ActiveBank", KEY = "bank";
 
 
     public static API getApi() {

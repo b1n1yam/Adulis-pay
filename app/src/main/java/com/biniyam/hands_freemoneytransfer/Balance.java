@@ -10,15 +10,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 
 import com.biniyam.hands_freemoneytransfer.utils.Common;
+import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
 import com.biniyam.hands_freemoneytransfer.utils.UssdHelper;
 
@@ -42,6 +45,8 @@ public class Balance extends AppCompatActivity {
         pin = findViewById(R.id.balance_pin);
         submit = findViewById(R.id.submit);
         covid= findViewById(R.id.covid_btn);
+
+        initCrouton();
         covid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,5 +149,24 @@ public class Balance extends AppCompatActivity {
             // permissions this app might request.
         }
     }
+    private void initCrouton() {
+        //crouton
+        CardView crouton;
+        TextView bank;
+        ImageView close;
 
+        crouton= findViewById(R.id.crouton);
+        bank =findViewById(R.id.bank);
+        close =findViewById(R.id.close);
+
+        final Crouton croutonCreator=new Crouton(this,crouton,bank,close);
+        croutonCreator.setBank();
+        croutonCreator.animateInCard();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                croutonCreator.closeCrouton();
+            }
+        });
+    }
 }
