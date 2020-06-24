@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:textAlignment="center"
-            android:text="Enter the receiver's phone number \n or choose from your contact"
+            android:text="@string/enter_reciver_phone"
             android:gravity="center_horizontal" />
 
         <LinearLayout
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Receiver's Phone"
+                android:hint="@string/receiver_s_phone"
                 android:inputType="phone"
                 tools:ignore="Autofill" />
 

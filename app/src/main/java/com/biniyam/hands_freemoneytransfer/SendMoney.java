@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
@@ -24,6 +25,7 @@ import androidx.core.app.ActivityCompat;
 import com.biniyam.hands_freemoneytransfer.utils.Common;
 import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
+import com.biniyam.hands_freemoneytransfer.utils.ThemeColors;
 import com.biniyam.hands_freemoneytransfer.utils.UssdHelper;
 
 import java.util.Timer;
@@ -36,9 +38,15 @@ public class SendMoney extends AppCompatActivity {
     Button submit;
     ImageButton openContact;
     TextView covid;
+    String getPhone, getAmount, getPin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences(Common.NAME, Context.MODE_PRIVATE);
+        final int bank = sharedPreferences.getInt(Common.KEY, 0);
+
+        setTheme(ThemeColors.chooseTheme(bank));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_money);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -57,14 +65,13 @@ public class SendMoney extends AppCompatActivity {
         }
 
 
-
         //init views
 
 
         amount = findViewById(R.id.send_ammount);
         pin = findViewById(R.id.send_pin);
         submit = findViewById(R.id.submit);
-        covid= findViewById(R.id.covid_btn);
+        covid = findViewById(R.id.covid_btn);
 
         initCrouton();
         covid.setOnClickListener(new View.OnClickListener() {
@@ -80,9 +87,9 @@ public class SendMoney extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String phone = reciversPhone;
-                String ammo = amount.getText().toString();
-                String p = pin.getText().toString();
+                getPhone = reciversPhone;
+                getAmount = amount.getText().toString();
+                getPin = pin.getText().toString();
 
                 InputValidator validator = new InputValidator(SendMoney.this);
                 if (!validator.isEmpity(amount) &&
@@ -102,18 +109,11 @@ public class SendMoney extends AppCompatActivity {
 
                             }
                         } else {
-                            String ussdString = "*847*" + "1" + "*" + phone + "*" +
-                                    ammo + "*" + p + "*" + "#";
-
-                            makeCall(ussdString);
-
+                            createCallStructure(bank);
                         }
-                    }else{
+                    } else {
                         //for older phones
-                        String ussdString = "*847*" + "1" + "*" + phone + "*" +
-                                ammo + "*" + p + "*" + "#";
-
-                        makeCall(ussdString);
+                        createCallStructure(bank);
                     }
                 }
 
@@ -123,6 +123,40 @@ public class SendMoney extends AppCompatActivity {
 
 
     }
+
+    private void createCallStructure(int bank) {
+        switch (bank) {
+            case 0:
+                cbeRequest();
+                break;
+            case 1:
+                awashReuest();
+                break;
+
+            default:
+                oroRequest();
+                break;
+
+        }
+    }
+
+    private void oroRequest() {
+
+        String ussdString = "*840*" + getPin + "*" + "2" + "*" + "2" + "*" + getPhone + "*" +
+                getAmount + "*"+"1" + "#";
+        makeCall(ussdString);
+    }
+
+    private void awashReuest() {
+    }
+
+    private void cbeRequest() {
+
+        String ussdString = "*847*" + "1" + "*" + getPhone + "*" +
+                getAmount + "*" + getPin + "*" + "#";
+        makeCall(ussdString);
+    }
+
 
     private void freezButton() {
         submit.setEnabled(false);
@@ -187,11 +221,11 @@ public class SendMoney extends AppCompatActivity {
         TextView bank;
         ImageView close;
 
-        crouton= findViewById(R.id.crouton);
-        bank =findViewById(R.id.bank);
-        close =findViewById(R.id.close);
+        crouton = findViewById(R.id.crouton);
+        bank = findViewById(R.id.bank);
+        close = findViewById(R.id.close);
 
-        final Crouton croutonCreator=new Crouton(this,crouton,bank,close);
+        final Crouton croutonCreator = new Crouton(this, crouton, bank, close);
         croutonCreator.setBank();
         croutonCreator.animateInCard();
         close.setOnClickListener(new View.OnClickListener() {

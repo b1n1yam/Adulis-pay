@@ -35,6 +35,7 @@ import androidx.core.app.ActivityCompat;
 import com.biniyam.hands_freemoneytransfer.utils.Common;
 import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
+import com.biniyam.hands_freemoneytransfer.utils.ThemeColors;
 import com.biniyam.hands_freemoneytransfer.utils.UssdHelper;
 
 import java.util.Timer;
@@ -52,7 +53,7 @@ public class BuyAirtime extends AppCompatActivity {
     private Animation animationUp;
     private Animation animationDown;
     TextView covid;
-    final String menuId = "3";//Indicates the menu item is Cash Out
+    String menuId = "3";//Indicates the menu item is buy airtime
     final String prmptToPhone = "1";//Selecting enter phone number among "Select Beneficiary"
     private static final String NAME = "ActiveBank", KEY = "bank";
 
@@ -61,15 +62,8 @@ public class BuyAirtime extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = this.getSharedPreferences(NAME, Context.MODE_PRIVATE);
         final int bank = sharedPreferences.getInt(KEY, 0);
-        if(bank==0){
-            setTheme(R.style.cbe_theme);
-        }
-        else if(bank==1){
-            setTheme(R.style.awash_theme);
-        }
-        else{
-            setTheme(R.style.AppTheme);
-        }
+
+        setTheme(ThemeColors.chooseTheme(bank));
         super.onCreate(savedInstanceState);
 
         //change theme
@@ -191,8 +185,34 @@ public class BuyAirtime extends AppCompatActivity {
     }
 
     private void abayRequest() {
-        Toast.makeText(this, "abay transfer", Toast.LENGTH_SHORT).show();
+        menuId ="3";
+        InputValidator validator = new InputValidator(BuyAirtime.this);
 
+        String ussdString = "";
+        if (firstArg.equals("1")) {
+
+
+            if (!validator.isEmpity(ammount) &&
+                    !validator.isEmpity(pin)) {
+
+                ussdString = "*840*" +getPin+"*"+ menuId + "*" + firstArg + "*" +
+                        secondArg + "*" +"1"+ "#";
+
+                makeCall(ussdString);
+
+            }
+        } else if (firstArg.equals("2")) {
+
+            if (!validator.isEmpity(phoneNo) && !validator.isEmpity(ammount) &&
+                    !validator.isEmpity(pin)) {
+                getPhone = phoneNo.getText().toString();
+                ussdString = "*840*" +getPin+ "*" + menuId + "*" + firstArg  + "*"
+                        + getPhone + "*" + secondArg + "*" + "1" + "#";
+
+                makeCall(ussdString);
+
+            }
+        }
     }
 
     private void awashRequest() {

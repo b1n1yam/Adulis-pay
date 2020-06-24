@@ -3,7 +3,9 @@ package com.biniyam.hands_freemoneytransfer;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,11 +23,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.biniyam.hands_freemoneytransfer.utils.Common;
 import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
+import com.biniyam.hands_freemoneytransfer.utils.ThemeColors;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.zxing.Result;
 import com.karumi.dexter.Dexter;
@@ -52,8 +56,14 @@ public class QR_ScannerActivity extends AppCompatActivity implements ZXingScanne
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = this.getSharedPreferences(Common.NAME, Context.MODE_PRIVATE);
+        final int bank = sharedPreferences.getInt(Common.KEY, 0);
+
+        setTheme(ThemeColors.chooseTheme(bank));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr__scanner);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //init
@@ -139,7 +149,7 @@ public class QR_ScannerActivity extends AppCompatActivity implements ZXingScanne
 
                 InputValidator validator = new InputValidator(QR_ScannerActivity.this);
                 String phoneString = phone.getText().toString();
-                if (!validator.isEmpity(phone) && phoneString.length() == 10 || phone.length() == 13) {
+                if (!validator.isEmpity(phone) && Common.validPhoneString(phoneString)) {
                     //da ya thing
                     Intent i = new Intent(QR_ScannerActivity.this, SendMoney.class);
                     i.putExtra("phone", phone.getText().toString());

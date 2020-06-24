@@ -193,20 +193,7 @@ public class GridLayout extends AppCompatActivity {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
-                        setPhoneContent = bottomSheet.findViewById(R.id.set_phone_content);
-                        qrContent = bottomSheet.findViewById(R.id.qr_content);
-                        loadingView = bottom_sheet.findViewById(R.id.loading_view);
-                        if (mPhoneNumber.equals("")) {
 
-                            setPhoneContent.setVisibility(View.VISIBLE);
-                            qrContent.setVisibility(View.GONE);
-                            loadingView.setVisibility(View.GONE);
-                        } else {
-                            setPhoneContent.setVisibility(View.GONE);
-                            qrContent.setVisibility(View.VISIBLE);
-                            loadingView.setVisibility(View.GONE);
-
-                        }
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED:
                         //check if phone number is set
@@ -235,11 +222,12 @@ public class GridLayout extends AppCompatActivity {
                                         InputValidator validator = new InputValidator(GridLayout.this);
                                         String phoneString = phone.getText().toString();
                                         //check for shared preference
-                                        if (!validator.isEmpity(phone) && phoneString.length() == 10 || phone.length() == 13) {
+                                        if (!validator.isEmpity(phone) && Common.validPhoneString(phoneString)) {
                                             SharedPreferences.Editor editor = sp.edit();
                                             editor.putString("phone", phoneString);
                                             editor.apply();
                                             mPhoneNumber = phoneString;
+                                            renderHorizontalSlider();
                                             try {
                                                 qrImage.setImageBitmap(qrCode.generateQr(mPhoneNumber));
                                             } catch (UnsupportedEncodingException e) {
@@ -285,9 +273,24 @@ public class GridLayout extends AppCompatActivity {
                         }
                         break;
                     case BottomSheetBehavior.STATE_COLLAPSED:
-                        // update collapsed button text
+
                         break;
                     case BottomSheetBehavior.STATE_DRAGGING:
+                        setPhoneContent = bottomSheet.findViewById(R.id.set_phone_content);
+                        qrContent = bottomSheet.findViewById(R.id.qr_content);
+                        loadingView = bottom_sheet.findViewById(R.id.loading_view);
+                        if (mPhoneNumber.equals("")) {
+
+                            setPhoneContent.setVisibility(View.VISIBLE);
+                            qrContent.setVisibility(View.GONE);
+                            loadingView.setVisibility(View.GONE);
+                        } else {
+                            setPhoneContent.setVisibility(View.GONE);
+                            qrContent.setVisibility(View.VISIBLE);
+                            loadingView.setVisibility(View.GONE);
+
+                        }
+                        // update collapsed button text
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
                         break;
@@ -334,9 +337,9 @@ public class GridLayout extends AppCompatActivity {
         cardBg.add(getResources().getColor(R.color.cbePrimary));
         cardBg.add(getResources().getColor(R.color.bluePrimary));
         cardBg.add(getResources().getColor(R.color.colorPrimary));
-        walletNames.add("CBE Birr");
-        walletNames.add("Awash Wallet");
-        walletNames.add("Oro Cash");
+        walletNames.add(getResources().getString(R.string.cbe_birr));
+        walletNames.add(getResources().getString(R.string.m_wallet));
+        walletNames.add(getResources().getString(R.string.oro_cash));
         walletLogo.add(R.drawable.cbe_wallet);
         walletLogo.add(R.drawable.awash_wallet);
         walletLogo.add(R.drawable.oro_cash);
@@ -443,7 +446,7 @@ public class GridLayout extends AppCompatActivity {
         animStart = ANIM_INIT;
 
         for (CardView card : cards) {
-            if (card == c1R1 || card == c2R1) {
+            if (card == c1R1 || card == c2R1 || card == c2R2) {
                 showViews(card);
 
             } else {
@@ -552,6 +555,11 @@ public class GridLayout extends AppCompatActivity {
                 mPhoneNumber = tMgr.getLine1Number();
                 if (!mPhoneNumber.equals("")) {
                     try {
+                        final SharedPreferences sp = getSharedPreferences("com.biniyam.hands_freemoneytransfer", Context.MODE_PRIVATE);
+
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("phone", mPhoneNumber);
+                        editor.apply();
                         qrImage.setImageBitmap(qrCode.generateQr(mPhoneNumber));
                     } catch (Exception e) {
                         Log.e("error", e.toString());
@@ -724,6 +732,23 @@ public class GridLayout extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        try {
+            if (broadcastReceiver != null) {
+                unregisterReceiver(broadcastReceiver);
+            }
+        }catch(Exception e){
+            Log.w("unregistered receiver",e.getMessage());
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        renderHorizontalSlider();
+    }
 }
 
 

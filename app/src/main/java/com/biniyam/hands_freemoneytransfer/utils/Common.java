@@ -128,4 +128,8 @@ public class Common {
         String text = new String(data, "UTF-8");
         return text;
     }
+    public static boolean validPhoneString(String phone){
+      return   phone.length() == 10 &&  phone.substring(0,2).equals("09") ||
+                phone.length() == 13 &&  phone.substring(0,4).equals("+251");
+    }
 }

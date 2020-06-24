@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,14 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.biniyam.hands_freemoneytransfer.GridLayout;
 import com.biniyam.hands_freemoneytransfer.R;
 
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static android.text.format.DateUtils.FORMAT_ABBREV_ALL;
@@ -92,12 +87,18 @@ public class BankAdapter extends RecyclerView.Adapter<CategoryAdapter> {
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter holder, int i) {
 
+        //set phone
+        SharedPreferences sp = context.getSharedPreferences("com.biniyam.hands_freemoneytransfer", Context.MODE_PRIVATE);
 
+        String mPhoneNumber = sp.getString("phone", "");
+        if(!mPhoneNumber.equals("")) {
 
+            holder.walletPhone.setText(restructurePhone(mPhoneNumber));
+        }
         holder.walletName.setText(walletNames.get(i));
         holder.walletCard.setCardBackgroundColor(cardBg.get(i));
         if(!balanceExist.get(i)){
-            holder.lastUpdateString.setText("Please check your balance");
+            holder.lastUpdateString.setText(R.string.check_balnce);
             holder.lastUpdate.setVisibility(View.GONE);
             holder.balance.setVisibility(View.GONE);
         }
@@ -128,5 +129,28 @@ public class BankAdapter extends RecyclerView.Adapter<CategoryAdapter> {
 
         return  bgDrawable;
 
+    }
+
+    private StringBuilder restructurePhone(String argText){
+        String twoChar;
+
+        twoChar = argText.substring(0,4);
+        if(twoChar.equals("+251")){
+           argText= argText.replace("+251","0");
+        }
+        StringBuilder phoneStruct= new StringBuilder();
+        for (int i=0; i<argText.length();i++){
+            if(i<6){
+                phoneStruct.append("*");
+            }else{
+                phoneStruct.append(argText.charAt(i));
+            }
+            if(i==2||i==5){
+                phoneStruct.append(" ");
+            }
+
+        }
+
+        return phoneStruct;
     }
 }

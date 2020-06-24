@@ -44,12 +44,29 @@ public class Crouton {
         Animation anim = AnimationUtils.loadAnimation(context, R.anim.slide_back_up);
         anim.setDuration(ANIMATION_DURATION);
         crouton.startAnimation(anim);
-        crouton.setVisibility(View.GONE);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                crouton.setVisibility(View.GONE);
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
 
     }
     public void setBank(){
         SharedPreferences sharedPreferences = context.getSharedPreferences(Common.NAME, Context.MODE_PRIVATE);
         final int bank = sharedPreferences.getInt(Common.KEY, 0);
+        bankName.setTextColor(ThemeColors.getAccent(context));
         switch (bank){
             case 0:
                 bankName.setText("CBE Birr");

@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-
+            android:layout_marginBottom="80dp"
             android:padding="@dimen/m10"
 
             >
@@ -131,6 +131,54 @@
             </androidx.cardview.widget.CardView>
 
 
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="@dimen/m10"
+                android:id="@+id/c2r2"
+                android:layout_width="@dimen/m0"
+                android:layout_height="107dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1"
+                android:layout_marginBottom="@dimen/m25"
+                android:layout_marginLeft="@dimen/m10"
+                android:layout_marginRight="@dimen/m10"
+                app:cardElevation="@dimen/m8"
+                app:cardBackgroundColor="@color/ligt_gray"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/m8"
+
+                android:focusable="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+
+                    <ImageView
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        android:layout_marginTop="@dimen/m10"
+                        android:src="@drawable/top_uppng"
+                        android:layout_gravity="right"
+                        tools:ignore="RtlHardcoded"
+                        android:contentDescription="@string/buy_airtime_icon_feedback" />
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/buy_airtime"
+                        android:layout_marginLeft="@dimen/m10"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_16_sp"
+                        android:layout_marginStart="@dimen/m10" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_marginTop="10dp"
                 android:id="@+id/c1r2"
@@ -179,53 +227,6 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="@dimen/m10"
-                android:id="@+id/c2r2"
-                android:layout_width="@dimen/m0"
-                android:layout_height="107dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1"
-                android:layout_marginBottom="@dimen/m25"
-                android:layout_marginLeft="@dimen/m10"
-                android:layout_marginRight="@dimen/m10"
-                app:cardElevation="@dimen/m8"
-                app:cardBackgroundColor="@color/ligt_gray"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="@dimen/m8"
-
-                android:focusable="true">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
-
-
-                    <ImageView
-                        android:layout_width="58dp"
-                        android:layout_height="58dp"
-                        android:layout_marginTop="@dimen/m10"
-                        android:src="@drawable/top_uppng"
-                        android:layout_gravity="right"
-                        tools:ignore="RtlHardcoded"
-                        android:contentDescription="@string/buy_airtime_icon_feedback" />
-
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/buy_airtime"
-                        android:layout_marginLeft="@dimen/m10"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/text_16_sp"
-                        android:layout_marginStart="@dimen/m10" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
                 android:id="@+id/c2r3"
                 android:layout_width="@dimen/m0"
                 android:layout_height="107dp"
@@ -239,7 +240,7 @@
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="@dimen/m8"
-
+                android:visibility="gone"
                 android:focusable="true">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -278,7 +279,7 @@
                 android:layout_marginRight="@dimen/m10"
                 app:cardElevation="@dimen/m8"
                 app:cardBackgroundColor="#ffb36f"
-
+                android:visibility="gone"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="@dimen/m8"
@@ -324,7 +325,7 @@
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="@dimen/m8"
-
+                android:visibility="gone"
                 android:focusable="true">
                 <LinearLayout
                     android:layout_width="match_parent"

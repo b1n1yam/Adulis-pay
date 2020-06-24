@@ -3,6 +3,7 @@ package com.biniyam.hands_freemoneytransfer;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
@@ -23,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 import com.biniyam.hands_freemoneytransfer.utils.Common;
 import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
+import com.biniyam.hands_freemoneytransfer.utils.ThemeColors;
 import com.biniyam.hands_freemoneytransfer.utils.UssdHelper;
 
 import java.util.Timer;
@@ -34,8 +36,13 @@ public class Balance extends AppCompatActivity {
     Button submit;
     String getPin = "";
     TextView covid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = this.getSharedPreferences(Common.NAME, Context.MODE_PRIVATE);
+        final int bank = sharedPreferences.getInt(Common.KEY, 0);
+
+        setTheme(ThemeColors.chooseTheme(bank));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -44,7 +51,7 @@ public class Balance extends AppCompatActivity {
 
         pin = findViewById(R.id.balance_pin);
         submit = findViewById(R.id.submit);
-        covid= findViewById(R.id.covid_btn);
+        covid = findViewById(R.id.covid_btn);
 
         initCrouton();
         covid.setOnClickListener(new View.OnClickListener() {
@@ -62,43 +69,87 @@ public class Balance extends AppCompatActivity {
 
                 getPin = pin.getText().toString();
 
-                InputValidator validator = new InputValidator(Balance.this);
-                String ussdString = "*847*" + "6" + "*" + getPin + "#";
 
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-                //check for validation
-                if (!validator.isEmpity(pin)) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-                        //check for permission
-                        if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                            if (ActivityCompat.shouldShowRequestPermissionRationale(Balance.this,
-                                    Manifest.permission.CALL_PHONE)) {
-                                Toast.makeText(Balance.this, "Call permission is required", Toast.LENGTH_SHORT).show();
-                            } else {
-                                // No explanation needed; request the permission
-                                ActivityCompat.requestPermissions(Balance.this,
-                                        new String[]{Manifest.permission.CALL_PHONE},
-                                        112);
-
-
-                            }
+                    //check for permission
+                    if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(Balance.this,
+                                Manifest.permission.CALL_PHONE)) {
+                            Toast.makeText(Balance.this, "Call permission is required", Toast.LENGTH_SHORT).show();
                         } else {
-                            makeCall(ussdString);
+                            // No explanation needed; request the permission
+                            ActivityCompat.requestPermissions(Balance.this,
+                                    new String[]{Manifest.permission.CALL_PHONE},
+                                    112);
+
 
                         }
-                    }else{
-                        makeCall(ussdString);
-                    }
+                    } else {
+                        createCallStructure(bank);
 
+                    }
+                } else {
+                    createCallStructure(bank);
                 }
+
+
             }
         });
     }
+
+    private void createCallStructure(int bank) {
+        switch (bank) {
+            case 0:
+                cbeRequest();
+                break;
+            case 1:
+                awashReuest();
+                break;
+
+            default:
+                oroRequest();
+                break;
+
+        }
+    }
+
+    private void oroRequest() {
+        InputValidator validator = new InputValidator(Balance.this);
+        //check for validation
+        if (!validator.isEmpity(pin)) {
+            String ussdString="*840*"+getPin+"*"+"5"+"*"+"1"+"#";
+            makeCall(ussdString);
+        }
+    }
+
+    private void cbeRequest() {
+        InputValidator validator = new InputValidator(Balance.this);
+        //check for validation
+        if (!validator.isEmpity(pin)) {
+            String ussdString = "*847*" + "6" + "*" + getPin + "#";
+            makeCall(ussdString);
+        }
+    }
+
+    private void awashReuest() {
+        Toast.makeText(this, "ToDo: awash reuest", Toast.LENGTH_SHORT).show();
+    }
+
     private void makeCall(String ussdString) {
         UssdHelper ussd = new UssdHelper();
         freezButton();
         Intent i = new Intent(Intent.ACTION_CALL, ussd.ussdtocallable(ussdString));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         startActivity(i);
     }
     private void freezButton() {

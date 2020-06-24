@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/m5"
                     android:fontFamily="@font/credit_card"
-                    android:text="*** *** 5678"
+                    android:text=""
                     android:textColor="@color/color_white"
                     android:textSize="22sp" />
 
@@ -76,7 +76,7 @@
                             android:id="@+id/last_update_string"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="last updated: "
+                            android:text="@string/last_updated"
                             android:textSize="@dimen/text_11sp"
                             android:textColor="@color/color_white" />
 

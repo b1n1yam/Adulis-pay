@@ -99,9 +99,12 @@
                 android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
         </activity>
         <activity
+
             android:name=".QR_ScannerActivity"
             android:label="@string/title_activity_scan_qr"
-            android:parentActivityName=".GridLayout">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".GridLayout"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />

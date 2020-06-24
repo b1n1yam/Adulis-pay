@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import com.biniyam.hands_freemoneytransfer.utils.Common;
 import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
+import com.biniyam.hands_freemoneytransfer.utils.ThemeColors;
 import com.biniyam.hands_freemoneytransfer.utils.UssdHelper;
 
 import androidx.annotation.RequiresApi;
@@ -37,6 +39,10 @@ public class PayBill extends AppCompatActivity {
     TextView covid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = this.getSharedPreferences(Common.NAME, Context.MODE_PRIVATE);
+        final int bank = sharedPreferences.getInt(Common.KEY, 0);
+
+        setTheme(ThemeColors.chooseTheme(bank));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_bill);
         Toolbar toolbar = findViewById(R.id.toolbar);
