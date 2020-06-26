@@ -124,6 +124,7 @@
     <string name="enter_reciver_phone">Enter the receiver\'s phone number \n or choose from your contact</string>
     <string name="receiver_s_phone">Receiver\'s Phone</string>
     <string name="or_enter_phone_number">OR, ENTER PHONE NUMBER</string>
+    <string name="accessibility_service_description">description de accessiblity serviceio</string>
 
     <!--    Amharic Strings-->
 </resources>

@@ -59,7 +59,7 @@ public class GridLayout extends AppCompatActivity {
     String mPhoneNumber = "";
     Context mAppContext = GridLayout.this;
     GenerateQrCode qrCode = new GenerateQrCode();
-    private CardView c1R1, c2R1, c1R2, c2R2, c1R3, c2R3, c1R4, c2R4, btn_send, btn_recive;
+    private CardView c1R1, c2R1, c1R2, c2R2, c1R3,  btn_send, btn_recive;
     private Animation anim1, anim2, anim3, anim4, anim5, anim6, anim7, anim8, anim9, anim10, anim11, anim12;
     private BottomSheetBehavior sheetBehavior;
     private LinearLayout bottom_sheet, coronaBtn, qrContent, setPhoneContent, loadingView;
@@ -86,17 +86,13 @@ public class GridLayout extends AppCompatActivity {
         c2R1 = findViewById(R.id.c2r1);
         c1R2 = findViewById(R.id.c1r2);
         c2R2 = findViewById(R.id.c2r2);
-        c2R3 = findViewById(R.id.c2r3);
-        c1R4 = findViewById(R.id.c1r4);
-        c2R4 = findViewById(R.id.c2r4);
+
 
         cards.add(c1R1);
         cards.add(c2R1);
         cards.add(c1R2);
         cards.add(c2R2);
-        cards.add(c2R3);
-        cards.add(c1R4);
-        cards.add(c2R4);
+
         btn_send = findViewById(R.id.btn_send);
         btn_recive = findViewById(R.id.btn_recive);
         bottom_sheet = findViewById(R.id.bottom_sheet);
@@ -335,18 +331,18 @@ public class GridLayout extends AppCompatActivity {
         List<Boolean> balanceExist = new ArrayList<>();
 
         cardBg.add(getResources().getColor(R.color.cbePrimary));
-        cardBg.add(getResources().getColor(R.color.bluePrimary));
         cardBg.add(getResources().getColor(R.color.colorPrimary));
         walletNames.add(getResources().getString(R.string.cbe_birr));
-        walletNames.add(getResources().getString(R.string.m_wallet));
+
         walletNames.add(getResources().getString(R.string.oro_cash));
         walletLogo.add(R.drawable.cbe_wallet);
-        walletLogo.add(R.drawable.awash_wallet);
         walletLogo.add(R.drawable.oro_cash);
 
         SharedPreferences sp = getSharedPreferences("com.biniyam.hands_freemoneytransfer", Context.MODE_PRIVATE);
         String cbeBalance = sp.getString(Common.CBE_CONTACT, "");
         String cbeUpdated = sp.getString(Common.CBE_CONTACT + "_updated", "");
+        String oroBalance = sp.getString(Common.ORO_CONTACT, "");
+        String oroUpdated = sp.getString(Common.ORO_CONTACT + "_updated", "");
         if (cbeBalance.equals("")) {
             lastUpdates.add("");
             balances.add("");
@@ -358,10 +354,19 @@ public class GridLayout extends AppCompatActivity {
             lastUpdates.add(cbeUpdated);
 
         }
-        balanceExist.add(false);
-        balanceExist.add(false);
-        balances.add("");
-        lastUpdates.add("");
+
+        if (oroBalance.equals("")) {
+            lastUpdates.add("");
+            balances.add("");
+            balanceExist.add(false);
+
+        } else {
+            balanceExist.add(true);
+            balances.add(oroBalance);
+            lastUpdates.add(oroUpdated);
+
+        }
+
         Common.getSms(GridLayout.this, Common.CBE_CONTACT);
 
 
@@ -382,62 +387,40 @@ public class GridLayout extends AppCompatActivity {
             @Override
             public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int i) {
                 SharedPreferences.Editor editor = mAppContext.getSharedPreferences(NAME, Context.MODE_PRIVATE).edit();
-                editor.putInt(KEY, i);
-                editor.apply();
-
-                switch (i) {
-                    case 1:
-                        showAwash();
-
-                        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluePrimary)));
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-                            getWindow().setStatusBarColor(getResources().getColor(R.color.blueDark));
-                        }
-                        break;
-                    case 2:
-                        showOro();
-                        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
-
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-                            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
-                        }
-
-                        break;
-                    default:
-                        showCBE();
-
-                        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.cbePrimary)));
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-                            getWindow().setStatusBarColor(getResources().getColor(R.color.cbeDark));
-                        }
 
 
+                if (i == 1) {
+                    showOro();
+                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                        getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+                    }
+                    editor.putInt(KEY, 2);
+                } else {
+                    showCBE();
+
+                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.cbePrimary)));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                        getWindow().setStatusBarColor(getResources().getColor(R.color.cbeDark));
+                    }
+                    editor.putInt(KEY, i);
                 }
+                editor.apply();
 
             }
         });
     }
 
-    private void showAwash() {
-        animStart = ANIM_INIT;
 
-        for (CardView card : cards) {
-            showViews(card);
-        }
-    }
 
 
     private void showCBE() {
         animStart = ANIM_INIT;
         for (CardView card : cards) {
-            if (card == c2R3 || card == c1R4 || card == c2R4) {
-                hideViews(card);
-            } else {
                 showViews(card);
-            }
         }
 
     }

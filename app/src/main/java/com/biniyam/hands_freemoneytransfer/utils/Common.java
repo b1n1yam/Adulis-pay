@@ -13,6 +13,7 @@ import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.biniyam.hands_freemoneytransfer.Retrofit.API;
 
@@ -24,8 +25,9 @@ public class Common {
     public final static int btnDelay = 5000;
     public final static String CBE_SMS_STRUCTURE = "Dear Customer,your CBE Birr account balance is";
     public final static int AWASH_SMS_STRUCTURE = 5000;
-    public final static int ORO_CASH_SMS_STRUCTURE = 5000;
+    public final static String ORO_CASH_SMS_STRUCTURE = "Avail. bal.is";
     public final static String CBE_CONTACT = "CBE Birr";
+    public final static String ORO_CONTACT = "Oro Cash";
     public  final static String NAME = "ActiveBank", KEY = "bank";
 
 
@@ -119,6 +121,10 @@ public class Common {
     public static String scrapeCbeBirrMessage(String msg){
         return msg.replace("Dear Customer,your CBE Birr account balance is", "")
                 .replace(". Thank You!", "").trim();
+    }
+
+    public static String scrapeOroCashMessage(String msg){
+        return msg.substring(msg.indexOf("Avail. bal.is") +18 , msg.indexOf("CR as on ") );
     }
 
 

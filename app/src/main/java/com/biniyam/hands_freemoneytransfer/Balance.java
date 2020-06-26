@@ -8,10 +8,13 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +28,9 @@ import com.biniyam.hands_freemoneytransfer.utils.Common;
 import com.biniyam.hands_freemoneytransfer.utils.Crouton;
 import com.biniyam.hands_freemoneytransfer.utils.InputValidator;
 import com.biniyam.hands_freemoneytransfer.utils.ThemeColors;
+import com.biniyam.hands_freemoneytransfer.utils.USSDService;
 import com.biniyam.hands_freemoneytransfer.utils.UssdHelper;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,6 +41,7 @@ public class Balance extends AppCompatActivity {
     Button submit;
     String getPin = "";
     TextView covid;
+    ScrollView holder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +58,29 @@ public class Balance extends AppCompatActivity {
         pin = findViewById(R.id.balance_pin);
         submit = findViewById(R.id.submit);
         covid = findViewById(R.id.covid_btn);
+        holder = findViewById(R.id.parent_holder);
 
         initCrouton();
+        if (bank == 2) {
+            if (!isAccessServiceEnabled()) {
+                Snackbar snackbar = Snackbar.make(holder, "Please enable accessibility setting", Snackbar.LENGTH_INDEFINITE).
+                        setAction("Allow Accessibility", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                                    startActivityForResult(intent, 0);
+                                } catch (Exception e) {
+                                    Toast.makeText(Balance.this, "Unable to start settings. Please go to settings > asccessiblity > "
+                                            + getResources().getString(R.string.app_name)
+                                            + " and enable accessibility", Toast.LENGTH_SHORT).show();
+                                    Log.e("SETTING_ERROR", e.getMessage());
+                                }
+                            }
+                        });
+                snackbar.show();
+            }
+        }
         covid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +125,12 @@ public class Balance extends AppCompatActivity {
         });
     }
 
+    public boolean isAccessServiceEnabled() {
+        String prefString = Settings.Secure.getString(Balance.this.getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+
+        return prefString != null && prefString.contains(Balance.this.getPackageName() + "/" + USSDService.class.getName());
+    }
+
     private void createCallStructure(int bank) {
         switch (bank) {
             case 0:
@@ -118,7 +151,7 @@ public class Balance extends AppCompatActivity {
         InputValidator validator = new InputValidator(Balance.this);
         //check for validation
         if (!validator.isEmpity(pin)) {
-            String ussdString="*840*"+getPin+"*"+"5"+"*"+"1"+"#";
+            String ussdString = "*840*" + getPin + "*" + "5" + "*" + "1" + "#";
             makeCall(ussdString);
         }
     }
@@ -152,6 +185,7 @@ public class Balance extends AppCompatActivity {
         }
         startActivity(i);
     }
+
     private void freezButton() {
         submit.setEnabled(false);
         submit.setBackgroundColor(Color.parseColor("#A5D6A7"));
@@ -178,11 +212,11 @@ public class Balance extends AppCompatActivity {
                                            String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case 112: {
-                
+
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Context mAppContext= Balance.this;
+                    Context mAppContext = Balance.this;
                     String ussdString = "*847*" + "6" + "*" + getPin + "#";
 
                     makeCall(ussdString);
@@ -200,17 +234,18 @@ public class Balance extends AppCompatActivity {
             // permissions this app might request.
         }
     }
+
     private void initCrouton() {
         //crouton
         CardView crouton;
         TextView bank;
         ImageView close;
 
-        crouton= findViewById(R.id.crouton);
-        bank =findViewById(R.id.bank);
-        close =findViewById(R.id.close);
+        crouton = findViewById(R.id.crouton);
+        bank = findViewById(R.id.bank);
+        close = findViewById(R.id.close);
 
-        final Crouton croutonCreator=new Crouton(this,crouton,bank,close);
+        final Crouton croutonCreator = new Crouton(this, crouton, bank, close);
         croutonCreator.setBank();
         croutonCreator.animateInCard();
         close.setOnClickListener(new View.OnClickListener() {
