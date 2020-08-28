@@ -34,6 +34,8 @@ public class Intro extends AppIntro implements ISlideBackgroundColorHolder,
 
         askForPermissions(new String[]{Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.READ_SMS,
+                Manifest.permission.RECEIVE_SMS,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA,
                 Manifest.permission.CALL_PHONE}, 4);

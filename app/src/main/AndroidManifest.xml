@@ -23,9 +23,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+        <activity
             android:name=".DSTVPayment"
             android:label="@string/title_activity_d_s_t_v_payment"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver
             android:name=".SMSListner"
@@ -99,11 +102,10 @@
                 android:value="com.biniyam.hands_freemoneytransfer.GridLayout" />
         </activity>
         <activity
-
             android:name=".QR_ScannerActivity"
             android:label="@string/title_activity_scan_qr"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".GridLayout"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -128,12 +130,15 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".utils.USSDService"
+        <service
+            android:name=".utils.USSDService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
-            <meta-data android:name="android.accessibilityservice"
+
+            <meta-data
+                android:name="android.accessibilityservice"
                 android:resource="@xml/ussd_service" />
         </service>
     </application>
