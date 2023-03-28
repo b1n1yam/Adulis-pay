@@ -4,7 +4,11 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+        gradlePluginPortal()
+        mavenCentral()
+
+
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.2'
@@ -13,7 +17,21 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+plugins {
+    id "com.gradle.build-scan" version "3.12.6"
+}
+gradleEnterprise {
+    buildScan {
 
+
+        termsOfServiceUrl = "https://gradle.com/terms-of-service"
+        termsOfServiceAgree = "yes"
+
+
+        publishAlways()
+        tag "frontend-engineer"
+    }
+}
 allprojects {
     repositories {
         google()
